@@ -1,0 +1,14 @@
+
+//This program can collect all the leaves from a binary tree
+// and insert them all in a list (OCaml)
+
+#type 'a binary_tree=
+  Empty
+ |Node of 'a * 'a binary_tree * 'a binary_tree;;
+
+
+# let rec leaves = function
+    | Empty -> []
+    | Node(c, Empty, Empty) -> [c]
+    | Node(_, l, r) -> leaves l @ leaves r;;
+val leaves : 'a binary_tree -> 'a list = <fun>
