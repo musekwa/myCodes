@@ -12,3 +12,11 @@
     | Node(c, Empty, Empty) -> [c]
     | Node(_, l, r) -> leaves l @ leaves r;;
 val leaves : 'a binary_tree -> 'a list = <fun>
+
+//The following program insert all the values from 
+//a binary tree into a list
+
+let rec list_of_values=function
+ Empty -> []
+ |Node (x, left, right) -> [x] @ list_of_values left
+       @ list_of_values right;;
