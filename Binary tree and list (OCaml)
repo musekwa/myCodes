@@ -13,10 +13,18 @@
     | Node(_, l, r) -> leaves l @ leaves r;;
 val leaves : 'a binary_tree -> 'a list = <fun>
 
-//The following program insert all the values from 
-//a binary tree into a list
+//The following program return the list all the values from 
+//a binary tree
 
 let rec list_of_values=function
  Empty -> []
  |Node (x, left, right) -> [x] @ list_of_values left
        @ list_of_values right;;
+
+
+//This program return the sum of all the values from 
+//a binary tree
+
+#let rec sum=function
+ Empty -> 0
+ |Node (x, left, right) -> x + sum left + sum right;;
