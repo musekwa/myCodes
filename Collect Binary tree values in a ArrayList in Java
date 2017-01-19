@@ -1,0 +1,88 @@
+//This program create a binary tree of int 
+//and return all the value into an arraylist
+
+import java.util.*;
+
+public class BinarySearchTree {
+	public static Node root;
+	public BinarySearchTree(){
+		this.root=null;
+	}
+	
+   public void insert(int id){
+		Node newNode=new Node(id);
+		if(root==null){
+			root=newNode;
+			return ;
+		}
+		Node current=root;
+		Node parent = null;
+		while(true){
+			parent=current;
+			if(id<current.data){
+				current=current.left;
+				if(current==null){
+					parent.left=newNode;
+					return;
+				}
+			}
+			else{
+				current=current.right;
+				if(current==null){
+					parent.right=newNode;
+					return;
+				}
+			}
+		}
+	}
+    public void display(Node root){
+    	if(root!=null){
+    		display(root.left);
+    		System.out.print(" "+root.data);
+    		display(root.right);
+    	}
+    }
+    
+    static ArrayList<Integer> lista=new ArrayList<Integer>();
+    public static ArrayList<Integer> listOfLeaves(Node node){
+    	if(node==null){
+    		return null;
+    	}
+    	listOfLeaves(node.left);
+    	lista.add(node.data);
+    	listOfLeaves(node.right);
+  
+    	return lista;
+    }
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int n;
+		ArrayList<Integer> lista=new ArrayList<Integer>();
+		
+		BinarySearchTree b=new BinarySearchTree();
+		do{
+			System.out.print("Insert a value in the Tree: ");
+			n=scan.nextInt();
+			b.insert(n);
+		}while(n>=0);
+		
+		b.display(b.root);
+		System.out.println();
+		lista=listOfLeaves(b.root);
+		System.out.print(lista);
+		
+    }
+
+}
+
+class Node{
+	int data;
+	Node left;
+	Node right;
+	public Node(int data){
+		this.data=data;
+		left=null;
+		right=null;
+	}
+}
