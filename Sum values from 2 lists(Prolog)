@@ -1,0 +1,7 @@
+//Sum two values from two different list of the same size
+//in Prolog
+sum([],[],List).
+sum([X|T],[Y|W], [A|List]):- A is X+Y,
+      sum(T,W,List).
+
+
