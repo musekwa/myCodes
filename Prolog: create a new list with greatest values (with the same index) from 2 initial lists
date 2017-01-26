@@ -1,0 +1,7 @@
+
+
+novalista(A, [], A).
+novalista([], B, B).
+novalista([], [], []).
+novalista([A1|A2], [B1|B2], [A1|M]): - A1>=B1, novalista(A2, B2, M).
+novalista([A1|A2], [B1|B2], [B1|M]): - A1<B1, novalista(A2, B2, M).
