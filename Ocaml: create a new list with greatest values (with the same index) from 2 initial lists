@@ -1,0 +1,8 @@
+//Ocaml: create a new list with greatest values (with the same index) from 2 initial lists 
+
+Let rec novaLista lista1 lista2=
+   Match (lista1, lista2) with
+| ([], []) -> []
+| (x::xs, y::ys) -> if x>y then x::(novaLista xs ys) else
+                                            Y::(novaLista xs ys)
+| _ -> failwith “Estas listas possuem tamanhos diferentes”;;
