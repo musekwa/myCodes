@@ -1,0 +1,8 @@
+\\Ocaml: Sum all values from a binary tree
+
+
+# type ‘a tree= Vazio | Node of ‘a * ‘a tree * ‘a tree;
+# let rec somaValores = function
+   Vazio -> 0
+|Node (x, esquerda, direita) -> 
+      x + somaValores esquerda + somaValores direita;;
