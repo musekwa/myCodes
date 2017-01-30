@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+void NumeracaoRomana(int n)
+{
+    int i;
+    char numeracao[25];
+    while(n>0){
+        if(n>=1000){
+            strcat(numeracao, "M");
+            n-=1000;
+        }
+        else if(n<100 && n>=500){
+            strcat(numeracao, "D");
+            n-=500;
+        }
+        else if(n<500 && n>=100){
+            strcat(numeracao, "C");
+            n-=100;
+        }
+        else if(n<100 && n>=50){
+            strcat(numeracao, "L");
+            n-=50;
+        }
+        else if(n<50 && n>=10){
+            strcat(numeracao, "X");
+            n-=10;
+        }
+        else if(n<10 && n>=5){
+            strcat(numeracao, "V");
+            n-=5;
+        }
+        else{
+            strcat(numeracao, "I");
+            n-=1;
+        }
+
+    }
+    printf("\n%s",numeracao);
+}
+
+int main(){
+    char numero[255];
+    printf("Numero: ");
+    gets(numero);
+    NumeracaoRomana(atoi(numero));
+}
